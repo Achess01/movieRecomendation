@@ -12,19 +12,24 @@
     </header>
     <main>
         <section class="app">
-            <h1>Movie Recomendation</h1>
-            <label for="language">Idioma: </label>
-            <select name="language" id="lang">
-                <option value="en-US">English</option>
-                <option value="es-MX">Español</option>
-            </select>             
-            <label for="year">Año:</label>            
-            <input name="year" id="year" type="number" min="1888" max="2100">
-            <label for="orden">Orden:</label>
-            <select name="orden" id="order"></select>
-            <label for="genre">Género</label>
-            <select name="genre" id="genre"></select>
-            <button id="search">Go!</button>
+            <div class="form">
+                <h1>Movie Recomendation</h1>                
+                <label for="language">Idioma: </label>
+                <select name="language" id="lang">
+                    <option value="en-US">English</option>
+                    <option value="es-MX">Español</option>
+                </select>             
+                <label for="year">Año:</label>            
+                <input name="year" id="year" type="number" min="1888" max="2100">
+                <label for="orden">Orden:</label>
+                <select name="orden" id="order">
+                    <option value="popularity.desc">Popularidad</option>
+                    <option value="vote_count.desc">Votos</option>
+                </select>
+                <label for="genre">Género</label>
+                <select name="genre" id="genre"></select>
+                <button id="search">Go!</button>
+            </div>
         </section>
     </main>
     <footer>
