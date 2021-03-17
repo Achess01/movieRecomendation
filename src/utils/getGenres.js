@@ -1,4 +1,6 @@
-import info from './fetchInfo'
+import {tmdb} from './fetchInfo'
+
+const genre = "/genre/movie/list?"
 
 const getGenres = async (url)=>{    
     try {            
@@ -11,14 +13,13 @@ const getGenres = async (url)=>{
 }
 
 export const renderGenres = async (selectGenres)=>{
-    const response = await getGenres(`${info.M.baseUrl}${info.M.genre}${info.M.apiKey}&language=es-MX`)    
+    const response = await getGenres(`${tmdb.baseUrl}${genre}${tmdb.apiKey}&language=es-MX`)    
     const genres = response.genres
     const options = genres.map(genre =>{
         let op = document.createElement('option')
         op.value = genre.id
         op.textContent = genre.name        
         return op
-    })
-    console.log(options)
+    })    
     selectGenres.append(...options)
 }

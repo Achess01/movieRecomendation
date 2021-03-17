@@ -16,10 +16,10 @@
                 <h1>Movie Recomendation</h1>                
                 <label for="language">Idioma: </label>
                 <select name="language" id="lang">
-                    <option value="en-US">English</option>
                     <option value="es-MX">Español</option>
+                    <option value="en-US">English</option>
                 </select>             
-                <label for="year">Año:</label>            
+                <label for="year" placeholder="Todos">Año:</label>            
                 <input name="year" id="year" type="number" min="1888" max="2100">
                 <label for="orden">Orden:</label>
                 <select name="orden" id="order">
@@ -27,9 +27,12 @@
                     <option value="vote_count.desc">Votos</option>
                 </select>
                 <label for="genre">Género</label>
-                <select name="genre" id="genre"></select>
+                <select name="genre" id="genre">
+                    <option value="Any">Todos</option>
+                </select>
                 <button id="search">Go!</button>
             </div>
+            <div id="showMovie"></div>
         </section>
     </main>
     <footer>
