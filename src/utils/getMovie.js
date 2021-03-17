@@ -9,9 +9,9 @@ const random = (min, max) => {
 }
 
 
-const getMovie = async (language, sort, year, genre) => {
+const getMovie = async (language, sort, year, genre, page) => {
     try {
-        const response = await fetch(`${baseUrl}${language}${sort}${year}${genre}`)
+        const response = await fetch(`${baseUrl}${language}${sort}${year}${genre}${page}`)
         const jsonResponse = await response.json()
         if (jsonResponse.total_results > 0) {
             const movies = jsonResponse.results
@@ -31,7 +31,7 @@ const getMovie = async (language, sort, year, genre) => {
 }
 
 const validateData = (language, sort, year, genre) => {
-    const page = random(1,4)
+    const page = random(1,3)
     const data = new Array(5)
     data[0] = language ? `${discover.language}${language}` : ""
     data[1] = sort ? `${discover.sort}${sort}` : ""
