@@ -71,19 +71,24 @@ const renderMovie = async (language, sort, year, genre) => {
         const video_container = document.createElement('div')
         const botoncito = document.createElement('button')
         botoncito.textContent="ver trailer"
-        if(videoId){
-            video_container.classList.add('video-container')
-            const iframe = document.createElement('iframe')
-            iframe.allow="accelerometer; autoplay; ecrypted-media; gyroscope; picture-in-picture"
-            iframe.allowFullscreen = true                     
-            iframe.src = `https://www.youtube.com/embed/${videoId}`
-            video_container.append(iframe)        
-        }
-        else{
-            botoncito.addEventListener('click', ()=>{
-                window.open(`https://www.youtube.com/results?search_query=${q}`, '_blank')
-            })        
-        }
+        botoncito.addEventListener('click', ()=>{
+            if(videoId){                                
+                video_container.classList.add('video-container')
+                const iframe = document.createElement('iframe')
+                iframe.allow="accelerometer; autoplay; ecrypted-media; gyroscope; picture-in-picture"
+                iframe.allowFullscreen = true                     
+                iframe.src = `https://www.youtube.com/embed/${videoId}`
+                video_container.append(iframe)                        
+            }
+            else{            
+                const request = confirm("¿Deseas abrir Youtube?")
+                if(request){
+                    window.open(`https://www.youtube.com/results?search_query=${q}`, '_blank')                
+                }
+            }
+
+        })        
+        
         container.append(title, image, description, release, botoncito, video_container)
         return container
     }

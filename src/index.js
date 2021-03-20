@@ -3,7 +3,7 @@ import {renderGenres} from './utils/getGenres'
 import renderMovie from './utils/getMovie'
 
 if(module.hot){
-    module.hot.accept()
+    module.hot.accept('./css/index.css')
 }
 const button = document.querySelector('#search')
 const inputYear = document.querySelector('#year')

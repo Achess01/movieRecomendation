@@ -2,8 +2,8 @@ import {yt} from './fetchInfo'
 
 const getVideo = async (q)=>{
     try {        
-        const response = await fetch(`${yt.url}${q}${yt.key}`)        
-        const infoResponse = await response.json()
+        const response = await fetch(`${yt.url}${q}${yt.key}`)           
+        const infoResponse = await response.json()        
         if(!infoResponse.error){
             const infoVideo = infoResponse.items[0].id.videoId                
             return infoVideo
