@@ -78,8 +78,7 @@ const renderMovie = async (language, sort, year, genre) => {
         if(language === "es-MX"){
             langQ = "película trailer latino"
         }
-        const q = `${movie.title} ${langQ} (${releaseYear})`
-        console.log(q)
+        const q = `${movie.title} ${langQ} (${releaseYear})`        
         const videoId = await getVideo(q)
         const video_container = document.createElement('div')
         const botoncito = document.createElement('button')
