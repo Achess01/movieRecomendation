@@ -14,8 +14,6 @@ const selectOrder = document.querySelector('#order')
 const movieNode = document.querySelector('#showMovie')
 const headerImage = document.querySelector('#headerImage')
 const footerImage = document.querySelector('#footerImage')
-headerImage.src = tmdbLogo
-headerImage.width = '50'
 footerImage.src = tmdbLogo
 footerImage.width = '50'
 renderGenres(selectGenre)
