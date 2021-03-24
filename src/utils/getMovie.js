@@ -74,8 +74,12 @@ const renderMovie = async (language, sort, year, genre) => {
         wrapper.classList.add('movie-container')
         wrapper.append(image, movieInfo)
         // video
-
-        const q = `${movie.title} movie trailer (${releaseYear}) `
+        let langQ= "movie trialer"
+        if(language === "es-MX"){
+            langQ = "película trailer latino"
+        }
+        const q = `${movie.title} ${langQ} (${releaseYear})`
+        console.log(q)
         const videoId = await getVideo(q)
         const video_container = document.createElement('div')
         const botoncito = document.createElement('button')
