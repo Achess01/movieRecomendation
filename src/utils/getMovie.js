@@ -48,37 +48,49 @@ const renderMovie = async (language, sort, year, genre) => {
         //Contenedor para mostrar datos de la película
         const container = document.createElement('article')
         container.classList.add('container')
-        //Título
-        const title = document.createElement('h1')
-        title.textContent = movie.title
         //Mostrar el poster
         const image = document.createElement('img')
         image.width = '300'
         image.height = '350'
         image.style.backgroundColor = '#000'
-        image.src = `${posterUrl}${movie.poster_path}`
+        image.src = `${posterUrl}${movie.poster_path}`        
+        //Info
+        const movieInfo = document.createElement('div')
+        movieInfo.classList.add('movie-info')
+        //Título
+        const title = document.createElement('h1')
+        title.textContent = movie.title
         //Sinópsis
         const description = document.createElement('p')
         description.textContent = movie.overview
+
         //Fecha de lanzamiento
         const release = document.createElement('h3')
         const releaseYear = movie.release_date.split("-")[0]
         release.textContent = releaseYear
+
+        movieInfo.append(title, description, release)
+        const wrapper = document.createElement('div')
+        wrapper.classList.add('movie-container')
+        wrapper.append(image, movieInfo)
         // video
 
         const q = `${movie.title} movie trailer (${releaseYear}) `
         const videoId = await getVideo(q)
         const video_container = document.createElement('div')
         const botoncito = document.createElement('button')
-        botoncito.textContent="ver trailer"
+        botoncito.textContent="Ver trailer"
+        let trailerShown = false
         botoncito.addEventListener('click', ()=>{
-            if(videoId){                                
+            if(videoId && !trailerShown){                                
                 video_container.classList.add('video-container')
                 const iframe = document.createElement('iframe')
                 iframe.allow="accelerometer; autoplay; ecrypted-media; gyroscope; picture-in-picture"
                 iframe.allowFullscreen = true                     
                 iframe.src = `https://www.youtube.com/embed/${videoId}`
-                video_container.append(iframe)                        
+                video_container.append(iframe)      
+                trailerShown = true        
+                window.scrollTo( 0, 1000 );      
             }
             else{            
                 const request = confirm("¿Deseas abrir Youtube?")
@@ -89,7 +101,7 @@ const renderMovie = async (language, sort, year, genre) => {
 
         })        
         
-        container.append(title, image, description, release, botoncito, video_container)
+        container.append(wrapper, botoncito, video_container)
         return container
     }
 }

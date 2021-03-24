@@ -1,6 +1,7 @@
 import './css/index.css'
 import {renderGenres} from './utils/getGenres'
 import renderMovie from './utils/getMovie'
+import tmdbLogo from './assets/tmdb.svg'
 
 if(module.hot){
     module.hot.accept('./css/index.css')
@@ -11,7 +12,12 @@ const selectGenre = document.querySelector('#genre')
 const lang = document.querySelector('#lang')
 const selectOrder = document.querySelector('#order')
 const movieNode = document.querySelector('#showMovie')
-
+const headerImage = document.querySelector('#headerImage')
+const footerImage = document.querySelector('#footerImage')
+headerImage.src = tmdbLogo
+headerImage.width = '50'
+footerImage.src = tmdbLogo
+footerImage.width = '50'
 renderGenres(selectGenre)
 
 

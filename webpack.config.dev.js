@@ -25,6 +25,19 @@ module.exports = {
                     'style-loader',
                     'css-loader'
                 ]                                    
+            },
+            {
+                test: /\.jpg|png|gif|woff|eot|ttf|svg|mp4|webm$/,
+                use: {
+                    loader: 'url-loader',                
+                    /* Usamos la configuración del loader */
+                    options: {
+                        limit : 90000,  
+                        /* asignar el peso máximo que un archivo 
+                        puede tener para ser transformado en base64 */
+
+                    }
+                }
             }
         ]
     },

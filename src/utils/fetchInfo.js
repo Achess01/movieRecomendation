@@ -12,7 +12,7 @@ export const discover={
    genre: "&with_genres=",
 }
 
-export const posterUrl = "https://image.tmdb.org/t/p/w300"
+export const posterUrl = "https://image.tmdb.org/t/p/original"
 
 export const yt = {
    url: "https://youtube.googleapis.com/youtube/v3/search?part=id&maxResults=1&q=",
