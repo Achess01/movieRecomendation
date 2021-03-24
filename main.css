@@ -59,13 +59,13 @@ header, footer{
 }
 
 .app{
-    width: 60%;
+    width: 80%;
     max-width: 860px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 50px;
+    padding: 50px 10px;
 
 }
 
@@ -102,11 +102,10 @@ header, footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    flex-wrap: nowrap;
+    overflow: hidden;    
     box-shadow: 0px 0px 15px 1px;
     border-radius: 20px;
-    margin: 30px 0;
+    margin: 30px 0;    
 }
 
 .movie-container img {    
@@ -187,6 +186,31 @@ main{
 
 @media screen and (max-width: 1024px){
     .movie-info{
-        font-size: 13px;            
+        font-size: 13px;               
+    }
+}
+
+@media screen and (max-width: 767px){
+    .movie-container{
+        flex-direction: column;
+        width: 80%;
+        
+    }
+
+    .movie-container img{
+        width: 100%;        
+    }
+
+    .movie-info{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .app{
+        width: 100%;
+    }
+    .movie-container{
+        width: 100%;
     }
 }
